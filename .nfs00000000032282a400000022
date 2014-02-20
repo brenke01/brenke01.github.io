@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Kevin's home page</title>
+	<meta name="generator" content="TextMate http://macromates.com/">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="home_style.css">
+
+ 
+</head>
+<body>
+   <div class="header">
+    	<p>My First Home Page</p>
+   </div>
+<h1>Kevin Bren</h1>
+
+
+    <div class="sidebar">
+        <ul>
+        <li> <a href="index.html">Home</a></p>
+    	<li> <a href="twins.html">2014 Twins Preview</a></li>
+    	<li> <a href="fishing.html">My Fishing</a></li>
+    	<li> <a href="classes.html">My Classes</a></li>
+    	</ul>
+
+    </div>
+
+
+<div class="content">
+<p>I am a Junior studying Computer Science at Luther College.</p>
+
+<img src="Kevin.jpg" width="400" height="400"/>
+        
+<h2>Some of my interests include:</h2>
+        <div class="floater1 col-xs-12 col-md-6 col-lg-6">
+            <ul>
+                <li>Sports, such as Baseball, Football, and College Basketball</li>
+               
+            </ul>
+             <p>I've played these sports throughout high school and freshman year at Luther I played baseball. Unfortunately, I tore my shoulder and wasn't able to competively play anymore...but I still play these sports as a hobby. 
+        </div>
+        <div class="floater2 col-xs-12 col-md-6 col-lg-6">
+            <ul>
+                <li>Being outdoors and fishing, biking, longboarding...etc</li>
+            </ul>
+            <p>I own a fishing boat and avidly fish on the Mississpi River in the port of Winona, MN. I used to hate fishing because of the patience, but I have now realized that it is one of my favorite hobbies. Although it is winter weather for half of the year, it is frustrating not being able to do these hobbies.<p>
+        </div>
+        <div class="floater3 col-xs-12 col-md-12 col-lg-12">
+            <ul>
+               <li>I also enjoy being an addict of Netflix.</li>
+                
+            </ul>
+            <p>I think this goes without saying, being that pretty much every college student has an addiction for Netflix. However, this can present a problem with my connection since everybody tends to be on Netflix when I am.
+        </div>
+
+
+
+
+
+<p>If you want to learn more about my hobby of fishing, you can click <a href="fishing.html">here.</a></p>
+
+<p>Here are the classes I'm taking this semester <a href="classes.html">My Classes</a></p>
+
+<p>I'm a very huge Minnesota Twins fan. To read more about them, click <a href="twins.html">here.</a></p> 
+<p> This is just text for the purpose of scrolling.
+    This is just text for the purpose of scrolling.
+    This is just text for the purpose of scrolling.
+    This is just text for the purpose of scrolling.
+    This is just text for the purpose of scrolling.
+    This is just text for the purpose of scrolling.
+    This is just text for the purpose of scrolling.
+    This is just text for the purpose of scrolling.
+    This is just text for the purpose of scrolling.
+    This is just text for the purpose of scrolling.
+    This is just text for the purpose of scrolling.
+    This is just text for the purpose of scrolling.
+    This is just text for the purpose of scrolling.
+    
+
+</div>
+
+    <div class="footer"></div>
+        <p>Luther College CS365 | email- brenke01@luther.edu | 2014 </p>
+    </div>
+    
+   <script src="https://code.jquery.com/jquery.js"></script>
+   <script src="js/bootstrap.min.js"></script> -->
+   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>
