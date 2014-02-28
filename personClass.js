@@ -4,15 +4,15 @@ Person = function(age, name){
 	this.age = age
 	this.personName = name
 
-	gainWeight = function(){
+	this.gainWeight = function(lbs){
 		return weight + 5
 	}
 
-	getSSN = function(){
+	this.getSSN = function(){
 		return ssn
 	}
 
-	getWeight = function(){
+	this.getWeight = function(){
 		return weight
 	}
 }
