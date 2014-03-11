@@ -33,7 +33,6 @@ isPrime = function(number){
 }
 
 
-
 var primeFactors = function(){
 	
 	var possiblePrimes = primeList()
