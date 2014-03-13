@@ -55,7 +55,7 @@ var primeFactors = function(){
 	primeFound = false
     }
 	primeFactorsList.push(num)
-    document.write("The prime factors are: " + primeFactorsList)
+    alert("The prime factors are: " + primeFactorsList)
 }
 
 
