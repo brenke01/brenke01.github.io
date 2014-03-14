@@ -2,8 +2,7 @@
 <head>
 </head>
 <link rel="stylesheet" type="text/css" href="word_style.css">
-<script type="text/javascript" src= "wordladder.js"></script>
-<script type="text/javascript" src= "wordlist.js"></script>
+
 <body>
 <a href="index.html">Return Home</a>
 <img src= "ladder.jpeg" height="225" width="100" align="right">
@@ -21,9 +20,9 @@ Word Ladder
 <p>Please choose a word length.</p>
 <div class= "firstdiv">
 <select id = "wordSelect">
-	<option value = "3">3 Letter Word </option>
-	<option value = "4">4 Letter Word </option>
-	<option value = "5">5 Letter Word </option>
+	<option value = "threeLetter">3 Letter Word </option>
+	<option value = "fourLetter">4 Letter Word </option>
+	<option value = "fiveLetter">5 Letter Word </option>
 </select>
 </div>
 <div class "seconddiv">
@@ -34,14 +33,12 @@ Word Ladder
 <p>Please enter an ending word.</p>
 <input type="text" id= "wordOutput">
 <div>
-<button type="button" onclick= "wordLadder()">Get Word Ladder</button>
+<button type = "submit" onclick= "wordLadder()">Get Word Ladder</button>
 <div>
 
 </form>
-<p class = "results">The Word Ladder is:</p>
-<p id="wordLadderSet"></p>
-
-
+<script type="text/javascript" src= "wordladder.js"></script>
+<script type="text/javascript" src= "wordlist.js"></script>
 </body>
 </html>
 

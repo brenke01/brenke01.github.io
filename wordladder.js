@@ -1,197 +1,186 @@
-wordstack = function(){
+var wordStack = function() {
+	var stackList = [];
 
-	this.myList = []
- 
-
-	this.peek = function(){
-		return this.myList[this.myList.length - 1]
+	this.stackPush = function(item) {
+		stackList.push(item);
+		return;
 	}
-    
-    this.pushOnto = function(item){
-    	this.myList.push(item)
-    	
-    }
 
-    this.popFrom = function(){
-    	return this.myList.pop()
-    }
+	this.stackPop = function(item) {
+		return stackList.pop();
+	}
 
+	this.peek = function() {
+		return stackList[stackList.length - 1];
+	}
 
-	this.isEmpty = function(){
-		if (this.myList.length == 0){
-			return true 
-		}
-		else{
-			return false
+	this.isEmpty = function() {
+		if (stackList.length == 0) {
+			return true;
+		} else {
+			return false;
 		}
 	}
 
+	this.size = function() {
+		return stackList.length;
+	}
 
-	this.cloneStack = function(){
-		newList = this.myList
-		newStack = new wordstack()
+	this.clone = function() {
+		var newList = stackList.slice(0);
+		var newStack = new wordStack();
 
-		for (i = 0; i <= newList; i++){
-			newStack.push(item)
-
+		for (var i = 0; i < newList.length; i++) {
+			newStack.stackPush(newList[i]);
 		}
-		return newStack
+
+		return newStack;
 	}
 
-}
+	this.show = function() {
+		return stackList;
+	}
+};
+var wordQueue = function() {
+	var queueList = [];
 
-
-
-
-wordqueue = function(){
-
-    this.myList = []
-
-
-	this.enqueue = function(item){
-		this.myList.push(item)
-
+	this.enqueue = function(item) {
+		queueList.push(item);
+		return;
 	}
 
-	this.dequeue = function(){
-		 
-		 return this.myList.shift()
+	this.dequeue = function() {
+		var removed = queueList.splice(0,1);
+		return(removed[0]);
 	}
 
-
-	this.isEmpty = function(){
-		if (this.myList.length == 0){
-			return true 
-		}
-		else{
-			return false
+	this.isEmpty = function() {
+		if (queueList.length == 0) {
+			return true;
+		} else {
+			return false;
 		}
 	}
 
-	this.queuesize = function(){
-		return this.myList.length
+	this.size = function() {
+		return queueList.length;
+	}
+};
+
+var usedSet = function() {
+	var setList = [];
+
+	this.addToSet = function(item) {
+		setList.push(item);
+		return;
 	}
 
-}
+	this.checkSet = function(item) {
+		var foundItem = false;
 
-var getOneDifferents = function(word, wList) {
-	var oneDifferents = [];
-    
-	for (var i = 0; i < wList.length; i++) {
-		console.log(wList)
-		var sameCh = 0;
-
-		for (var j = 0; j < i.length; j++) {
-			if (wList[i] = word[j]) {
-				sameCh += 1;
+		for (var i = 0; i < this.setList.length; i++) {
+			if (setList[i] == item) {
+				foundItem = true;
 			}
 		}
-		if (sameCh == word.length - 1) {
-			oneDifferents.push(wList[i]);
-		}
+		return foundItem;
 	}
-	return oneDifferents;
-}
+};
 
-/*reverse = function(wordList){
-	mystack = new Array()
-	newList = []
-	for (i = 0; i <= wordList; i++){
-		mystack.push(i)
-	}
-	for (j = 0; j <= wordList; j++){
-		newList.push(mystack.pop())
-	}
-	return newList
-
-}*/
-
-wordset = function(){
-
-	this.mySet = []
-
-	this.addTo = function(item){
-		return this.mySet.push(item)
-	}
-
-	this.contains = function(item){
-		if (this.mySet.indexOf(item) != -1){
-			return true
-		}
-		else{
-			return false
-		}
-	}
-}
-wordLadder = function(){
-
-	var startingWord = document.getElementById("wordInput").value
-	var endingWord = document.getElementById("wordOutput").value
-	var wordLength = document.getElementById("wordSelect")
-	var wordValue = wordLength.options[wordLength.selectedIndex].value
+var getDiffers = function(word, wordList) {
+	var differs = [];
 	
 
-
-
-	if (wordValue == "threeLetter"){
-		useList = threeLetterWords
+	for (var i = 0; i < wordList.length; i++) {
+		var same = 0;
+		for(var j = 0; j < wordList[i].length; j++) {
+			if (wordList[i][j] == word[j]) {
+				same += 1;
+			}
+		}		
+		if (same == word.length - 1) {
+			differs.push(wordList[i]);
+		}
 	}
-	else if (wordValue == "fourLetter"){
-		useList = fourLetterWords
+	return differs;
+};
+
+var wordLadder = function() {
+
+	var startingWord = document.getElementById("wordInput").value;
+	var endingWord = document.getElementById("wordOutput").value;
+	var wordLength = document.getElementById("wordSelect");
+	var wordVal = wordLength.options[wordLength.selectedIndex].value;
+
+	if (wordVal == 3) {
+		var useList = threeLetterWords;
+	} else if (wordVal == 4) {
+		var useList = fourLetterWords;
+	} else {
+		var useList = fiveLetterWords;
 	}
-	else if (wordValue == "fiveLetter"){
-		useList = fiveLetterWords
-	}
-	
-	
-    
 
-    var thewordstack = new wordstack()
-    var thewordqueue = new wordqueue()
-	thewordstack.pushOnto(startingWord)
-	thewordqueue.enqueue(thewordstack)
+	var queue = new wordQueue();
+	var stack = new wordStack();
+	stack.stackPush(startingWord);
+	queue.enqueue(stack);
 
 
-	var usedWordsSet = new wordset()
-	usedWordsSet.addTo(startingWord)
-    
-	var done = false
-	while (!done){
+	usedWords = new usedSet();
+	usedWords.addToSet(startingWord);
 
-        var currStack = thewordqueue.dequeue()
-        var topW = currStack.peek()
-        var newW = getOneDifferents(topW, useList)
-        
+	var done = false;
+	var found = false;
 
+	while (!done) {
+		var currentStack = queue.dequeue();
+		var topWord = currentStack.peek();
+		var nextWords = getDiffers(topWord, useList)
 
-		for (i = 0; i <= newW.length; i++){
-			if (usedWordsSet.contains(i) == false){
-				usedWordsSet.addTo(i)
-				newStack = currStack.cloneStack()
-				newStack.pushOnto(i)
-				if (i == endingWord){
-					done = true
-					
-					var wordLadderSet = []
-					for (j = 0; j <= newStack.length; j++){
-						wordLadderSet.push(newStack.pop())
-					}
+		for (var i = 0; i < nextWords.length; i++) {
+			var nextInUsed = false;
+			
+			for (var j = 0; j < usedWords.length; j++) {
+				if (nextWords[i] == usedWords[j]) {
+					nextInUsed = true;
 				}
-				thewordqueue.enqueue(newStack)
 			}
-		}
-		if (thewordqueue.queuesize == 0){
-			done = true
-		}
-		else{
-			var printList = wordLadderSet.reverse()
-			document.write(printList)
 
+			if (!nextInUsed) {
+				usedWords.addToSet(nextWords[i]);
+				var newStack = currentStack.clone();
+				newStack.stackPush(nextWords[i]);
+
+				if (nextWords[i] == endingWord) {
+					done = true;
+					found = true;
+					var finalLadder = newStack.show();
+				}
+
+				queue.enqueue(newStack);
+			}		
 		}
 	
-   
-	
+		if (queue.size() == 0) {
+			done = true;
+			found = false;
+		}
+	}
+
+	if (found == true) {
+		
+		var finalString = "";
+		
+		for (var i = 0; i < finalLadder.length; i++) {
+			finalString += "<p>" + finalLadder[i] + "</p>";
+		}
+		
+		document.getElementById("wordLadderSet").innerHTML = finalString;
 
 	}
-	
+	else {
+		var exceptionAlert = "There is no Word Ladder to be found."
+		document.getElementById("wordLadderSet").innerHTML = exceptionAlert
+	}
+	return;
 }
