@@ -67,26 +67,6 @@ var wordQueue = function() {
 	}
 };
 
-var usedSet = function() {
-	var setList = [];
-
-	this.addToSet = function(item) {
-		setList.push(item);
-		return;
-	}
-
-	this.checkSet = function(item) {
-		var foundItem = false;
-
-		for (var i = 0; i < this.setList.length; i++) {
-			if (setList[i] == item) {
-				foundItem = true;
-			}
-		}
-		return foundItem;
-	}
-};
-
 var getDiffers = function(word, wordList) {
 	var differs = [];
 	
@@ -103,6 +83,27 @@ var getDiffers = function(word, wordList) {
 		}
 	}
 	return differs;
+};
+
+
+var usedSet = function() {
+	var setList = [];
+
+	this.addToSet = function(item) {
+		setList.push(item);
+		return;
+	}
+
+	this.usedInSet = function(item) {
+		var foundItem = false;
+
+		for (var i = 0; i < this.setList.length; i++) {
+			if (setList[i] == item) {
+				foundItem = true;
+			}
+		}
+		return foundItem;
+	}
 };
 
 var wordLadder = function() {
@@ -135,23 +136,23 @@ var wordLadder = function() {
 	while (!done) {
 		var currentStack = queue.dequeue();
 		var topWord = currentStack.peek();
-		var nextWords = getDiffers(topWord, useList)
+		var newWords = getDiffers(topWord, useList)
 
-		for (var i = 0; i < nextWords.length; i++) {
-			var nextInUsed = false;
+		for (var i = 0; i < newWords.length; i++) {
+			var inUsedWords = false;
 			
 			for (var j = 0; j < usedWords.length; j++) {
-				if (nextWords[i] == usedWords[j]) {
-					nextInUsed = true;
+				if (newWords[i] == usedWords[j]) {
+					inUsedWords = true;
 				}
 			}
 
-			if (!nextInUsed) {
-				usedWords.addToSet(nextWords[i]);
+			if (!inUsedWords) {
+				usedWords.addToSet(newWords[i]);
 				var newStack = currentStack.clone();
-				newStack.stackPush(nextWords[i]);
+				newStack.stackPush(newWords[i]);
 
-				if (nextWords[i] == endingWord) {
+				if (newWords[i] == endingWord) {
 					done = true;
 					found = true;
 					var finalLadder = newStack.show();
