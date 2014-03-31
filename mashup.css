@@ -1,0 +1,14 @@
+
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    vertical-align: middle;
+}
+
+.label{
+	font-size: 24px
+}

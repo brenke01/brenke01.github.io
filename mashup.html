@@ -1,0 +1,27 @@
+<html>
+<head>
+<img src="cityfinder.jpg">
+<link rel="stylesheet" type="text/css" href="mashup.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" ></script>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false">
+</script>
+<script type="text/javascript" src="mashup.js"></script>
+
+<script type="text/javascript">google.maps.event.addDomListener(window, 'load', initialize); </script>
+</head>
+<div>
+<br>
+<body onload=initialize()>
+
+    
+    <label class="label">Find a city you wish to learn more about: </label>
+    <input type="textbox" id="city" value="Minneapolis, Minnesota">
+    <input type="button" id="button" value="Search For City" onclick=pinCity()>
+    <input type="button" class="clear" value="Clear" onclick=clearMap()>
+    <br>
+    <br>
+    <div id="googleMap" style="width:800px;height:380px;"></div>  
+    <div id="output"></div>
+</body>
+<div>
+</html>
