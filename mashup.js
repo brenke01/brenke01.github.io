@@ -24,7 +24,7 @@ var geocoder =  new google.maps.Geocoder();
             marker.setMap(map);
 
          var wikipediaHTMLResult = function(data) {
-        //Split the HTML from the parse returned
+            //Split the HTML from the parse returned
             myHTML = data.parse.text["*"]
             //var readData = $('<div>' + data.parse.text["*"] + '</div>');
             //console.log(myHTML)
@@ -32,11 +32,11 @@ var geocoder =  new google.maps.Geocoder();
             $("#output").html(myHTML);
             //console.log(myHTML)
         };
-     //Getting the actual data from Wikipedia
+        //Getting the actual data from Wikipedia
         function callWikipediaAPI(wikipediaPage) {$.getJSON("http://en.wikipedia.org/w/api.php?action=parse&format=json&redirects&callback=?", {page:wikipediaPage, prop:"text"}, wikipediaHTMLResult);}
      
           //loc = document.getElementById("city").value
-          callWikipediaAPI(loc);          
+            callWikipediaAPI(loc);          
           } else {
             alert("Please enter a valid city" + status);
           }
