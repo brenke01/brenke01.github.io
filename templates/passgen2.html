@@ -1,0 +1,17 @@
+<title>{% block title %}XKCD Password Generator{% endblock %}</title>
+{% block content %}
+<h1>10 Possible Passwords</h1>
+<table border = "4">
+<tr>
+
+<ul>
+{% for pass in passwords %}
+	<tr><td valign="top"><li>{{ pass }} </li></td></tr>
+	{% endfor %}
+	</ul>
+
+</tr>
+</table>
+
+
+{% endblock %}

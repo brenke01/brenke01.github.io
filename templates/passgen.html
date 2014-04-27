@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<title>{% block title %}XKCD Password Generator{% endblock %}</title>
+
+</head/>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+
+<body>
+<h1>Password Generator</h2>
+<div class = "selections">
+<p>Choose your limitations:</p>
+<table border = "4">
+<tr><td valign="top">
+<form method="POST" action="results">
+<input type="checkbox" name="limit" value="3">Substitute e for 3<br>
+<input type="checkbox" name="limit" value="4">Substitute a for 4<br>
+<input type="checkbox" name="limit" value="1">Substitute i for 1<br>
+<input type="checkbox" name="limit" value="0">Substitute o for 0<br>
+<input type="checkbox" name="limit" value="5">Substitute s for 5<br>
+<input type="checkbox" name="limit" value="firstcap">Capitalize first word<br>
+<input type="checkbox" name="limit" value="secondcap">Capitalize second word<br>
+<input type="checkbox" name="limit" value="thirdcap">Capitalize third word<br>
+<input type="checkbox" name="limit" value="fourthcap">Capitalize fourth word<br>
+<br>
+
+
+<br>
+<input type="submit" value="Generate Password">
+</form>
+</td>
+</tr>
+</table>
+</div>
+
+</body>
+</html>
